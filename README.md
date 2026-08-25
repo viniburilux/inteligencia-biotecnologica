@@ -14,17 +14,18 @@ O objetivo não é publicar uma resposta definitiva nem expor a máquina operaci
 
 O primeiro caso de uso é a biotecnologia agropecuária. Ele funciona como um campo de investigação concreto para testar perguntas sobre bioinsumos, biocontrole, inoculantes, biofertilizantes, microrganismos, fermentação, aplicações agrícolas e transições industriais.
 
-## Comece pela história
+## Comece pelo que foi encontrado
 
 A melhor porta de entrada é o [site público](https://viniburilux.github.io/inteligencia-biotecnologica/), que apresenta a investigação na ordem **problema → pergunta → investigação → evidências → achados → implicações → limitações → método**.
 
-Para consultar os artefatos, siga para o [inventário público](evidence/inventario-publico.md), o [mapa de sinais](evidence/mapa-de-sinais.md) e a [proveniência das fontes](provenance/README.md). A documentação metodológica explica como ler os registros sem confundir presença em uma fonte com validade, novidade, viabilidade comercial ou adequação agronômica.
+Para saber o que a investigação já encontrou, comece por [O que encontramos](evidence/o-que-encontramos.md). Depois, percorra a [trajetória de origem](evidence/trajetoria-de-origem.md), o [inventário público](evidence/inventario-publico.md), o [mapa de sinais](evidence/mapa-de-sinais.md) e a [proveniência das fontes](provenance/README.md). A documentação metodológica explica como ler os registros sem confundir presença em uma fonte com validade, novidade, viabilidade comercial ou adequação agronômica.
 
 ## O que este repositório publica
 
 | Camada | O que você encontra |
 |---|---|
 | **Conhecimento** | Contexto do problema, perguntas de investigação, sínteses e relações identificadas |
+| **Achados** | Pontes, recorrências, resultados negativos, refinamentos e perguntas abertas |
 | **Evidência** | Inventários, sinais, mapas, identificadores, URLs e estados epistemológicos |
 | **Proveniência** | Fonte, data de captura, transformação aplicada, hashes e limitações |
 | **Demonstrações** | Visualizações e exemplos metadata-only ou sintéticos |
@@ -34,7 +35,7 @@ Os artefatos publicados foram escolhidos para demonstrar conhecimento e credibil
 
 ## O que não é publicado aqui
 
-Este repositório não é uma cópia reduzida do laboratório Agro e não pretende expor sua implementação. Queries completas, corpus bruto, respostas extensas de APIs, estados adaptativos, memória de investigação, políticas internas de priorização, scripts específicos de execução e dados intermediários permanecem fora desta camada pública.
+Este repositório não é uma cópia reduzida do laboratório Agro e não pretende expor sua implementação. Queries completas, corpus bruto, respostas extensas de APIs, estados adaptativos, memória de investigação, políticas internas de priorização, heurísticas privadas, ciclos autônomos e scripts operacionais específicos permanecem fora desta camada pública.
 
 O laboratório completo de Inteligência Biotecnológica Agropecuária está no repositório privado [`inteligencia-biotecnologica-agropecuaria`](https://github.com/viniburilux/inteligencia-biotecnologica-agropecuaria). A existência desse repositório privado não altera o compromisso de tornar pública a evidência que for deliberadamente selecionada, revisada e contextualizada.
 
@@ -52,7 +53,7 @@ A separação é intencional:
 
 Cada achado deve ser interpretado com seu estado epistemológico. `observed` indica algo diretamente sustentado por uma fonte capturada; `inferred` indica uma relação derivada por regra explícita; `hypothesis` indica uma possibilidade ainda não testada; `insufficient` indica que a evidência não basta; `blocked` registra uma limitação de acesso ou verificação; `rejected` e `contradicted` preservam resultados que não devem ser tratados como confirmação.
 
-A presença de uma patente, artigo, empresa, universidade ou organismo em um registro não prova, isoladamente, validade jurídica, novidade, titularidade atual, disponibilidade para licenciamento, eficácia, viabilidade comercial, segurança ou adequação agronômica.
+A presença de uma patente, artigo, empresa, universidade ou organismo em um registro não prova, isoladamente, validade jurídica, novidade, titularidade atual, liberdade de operação, disponibilidade para licenciamento, eficácia, viabilidade comercial, segurança ou adequação agronômica.
 
 ## Estrutura
 
@@ -65,11 +66,14 @@ A presença de uma patente, artigo, empresa, universidade ou organismo em um reg
 │   ├── STATUS.md
 │   └── metodo-e-leitura.md
 ├── evidence/
+│   ├── o-que-encontramos.md
+│   ├── trajetoria-de-origem.md
 │   ├── inventario-publico.md
 │   ├── mapa-de-sinais.md
 │   └── relacoes-publicas.md
 ├── provenance/
 │   ├── README.md
+│   ├── fontes-e-limites.md
 │   └── manifest-publico.json
 ├── examples/
 │   └── metadata-only-record.json
