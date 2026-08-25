@@ -1,0 +1,17 @@
+{
+  "record_id": "example:public-metadata-only-001",
+  "entity_type": "work",
+  "title": "Exemplo sintético de registro metadata-only",
+  "source": "synthetic_example",
+  "source_url": "https://example.org/source",
+  "source_id": "synthetic-001",
+  "retrieved_at": "2026-08-25T00:00:00Z",
+  "metadata_only": true,
+  "epistemic_status": "observed",
+  "transformation": "Exemplo criado para documentar o contrato público; não representa uma obra real.",
+  "limitations": [
+    "Registro sintético.",
+    "Não deve ser interpretado como evidência científica, patentária ou regulatória.",
+    "Não concede licença sobre qualquer fonte externa."
+  ]
+}
