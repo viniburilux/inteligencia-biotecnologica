@@ -29,7 +29,9 @@ O [registro de evidências V2](evidence-register-v2.json) organiza as fontes das
 
 ## O manifesto público
 
-O arquivo [`manifest-publico-v2.json`](manifest-publico-v2.json) resume o escopo, as fontes, a política de seleção, o snapshot, os artefatos publicados e as exclusões deliberadas. O [registro de evidências V2](evidence-register-v2.json) detalha cada identificador usado nas novas trilhas.
+O arquivo [`manifest-publico-v2.json`](manifest-publico-v2.json) resume o escopo, as fontes, a política de seleção, o snapshot, os artefatos publicados e as exclusões deliberadas. O [registro de evidências](evidence-register-v2.json) detalha cada identificador usado nas trilhas.
+
+A extensão editorial [`manifest-publico-product-001.json`](manifest-publico-product-001.json) registra a nova porta de produto: a homepage passou a oferecer exploração e investigação, e a rota [`/copiloto/`](../site/copiloto/index.html) apresenta o Copiloto como demonstração guiada. Essa extensão não altera o conhecimento-base nem expõe a infraestrutura privada.
 
 Os hashes dos artefatos públicos devem ser calculados na validação final da release. O manifesto não substitui os termos de uso das fontes nem concede licença sobre textos, imagens, abstracts, claims ou documentos de terceiros.
 

@@ -1,0 +1,69 @@
+{
+  "manifest": "inteligencia-biotecnologica-public-product-001",
+  "parent_release": "inteligencia-biotecnologica-public-v2",
+  "generated_at": "2026-08-27T00:00:00Z",
+  "visibility": "public",
+  "purpose": "product_entrypoint_extension",
+  "canonicality": "projection_not_canonical",
+  "scope": "Public editorial extension that adds a Copiloto entry point, use-case framing, LUXVERSO identity and guided demonstration contact without exposing private mechanisms.",
+  "communication_policy": "Public communication foregrounds problem, capability, investigation, evidence and possible use; internal release numbering remains in provenance and version control.",
+  "artifacts": [
+    {
+      "path": "README.md",
+      "sha256": "e4f220aae0486590da053070ff3d37a9a35747a4b997f8ba242c39d5ecf5ae06"
+    },
+    {
+      "path": "site/index.html",
+      "sha256": "67332641060ff9757b575e97d4f0c095e37139d985ad8bff63d3fd7ad7969595"
+    },
+    {
+      "path": "site/copiloto/index.html",
+      "sha256": "cc9f2445dd1d4aca52fedd083192b92f69d7e0ed34d1ab2d4c4764f7588f90a4"
+    },
+    {
+      "path": "provenance/manifest-publico-product-001.json",
+      "sha256": null
+    }
+  ],
+  "product_surface": {
+    "entrypoint": "site/copiloto/index.html",
+    "mode": "guided_demonstration",
+    "public_actions": [
+      "explore_public_findings",
+      "request_copilot_demonstration",
+      "bring_a_biotechnology_question"
+    ],
+    "not_claimed": [
+      "public_api",
+      "automatic_access_to_private_lab",
+      "unbounded_answering",
+      "scientific_validation",
+      "legal_opinion",
+      "commercial_guarantee"
+    ]
+  },
+  "boundary": {
+    "excluded": [
+      "ASIE",
+      "prompts",
+      "operational_memory",
+      "STATE_DELTA",
+      "Knowledge Resolver",
+      "logs",
+      "frontier",
+      "private_heuristics",
+      "private_pipelines",
+      "raw_corpus",
+      "full_documents",
+      "credentials",
+      "private_paths"
+    ]
+  },
+  "validation": {
+    "hashes_required": true,
+    "links_required": true,
+    "public_boundary_scan_required": true,
+    "route_rendering_required": true,
+    "manifest_self_hash_excluded": true
+  }
+}
