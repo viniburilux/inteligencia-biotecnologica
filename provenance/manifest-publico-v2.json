@@ -1,0 +1,201 @@
+{
+  "manifest": "inteligencia-biotecnologica-public-v2",
+  "release_id": "inteligencia-biotecnologica-public-v2",
+  "generated_at": "2026-08-27T00:00:00Z",
+  "visibility": "public",
+  "purpose": "public_intelligence_demonstration",
+  "mode": "metadata-only",
+  "canonicality": "projection_not_canonical",
+  "case_study": "agricultural_biotechnology",
+  "snapshot": {
+    "snapshot_date": "2026-08-21",
+    "works_or_records": 763,
+    "actors": 2680,
+    "institutions": 767,
+    "observed_relations": 4045,
+    "application_signals": 536,
+    "derived_queries_executed": 17,
+    "reformulations_opened_results": 3,
+    "source_mix": {
+      "OpenAlex": 422,
+      "Crossref": 146,
+      "Google Patents": 195
+    }
+  },
+  "scope": "Selected public metadata, identifiers, source links, original editorial synthesis and explicit limitations from the cumulative Agro biotechnology investigation.",
+  "selection_policy": "Publish a legible subset of observed and explicitly qualified relations; preserve surprising and negative findings; do not publish operational mechanisms or raw source payloads.",
+  "deduplication_policy": "Conservative normalization by public identifier where available; duplicate language renderings are not counted as separate patent families; entities and families remain separate unless identity is supported.",
+  "epistemic_statuses": [
+    "observed",
+    "inferred",
+    "hypothesis",
+    "insufficient",
+    "blocked",
+    "rejected",
+    "contradicted"
+  ],
+  "source_families": [
+    "OpenAlex",
+    "Crossref",
+    "Google Patents rendered pages",
+    "UEL public repository"
+  ],
+  "public_artifacts": [
+    {
+      "path": "README.md",
+      "sha256": "003e999c2e677af029b2796880aa561f972eb5378d18eeaafbf5caa78f71b66d",
+      "bytes": 6289
+    },
+    {
+      "path": "docs/DATA_POLICY.md",
+      "sha256": "8e12e36c8d4b25d7b302a9d558f60ebaaea684da091bfd4c5254fe4907c71acc",
+      "bytes": 4105
+    },
+    {
+      "path": "docs/PROVENANCE.md",
+      "sha256": "653382488b09462d3d6fc6739af583f5f8823aeddab0c45cece9fd6e405a3d4f",
+      "bytes": 3144
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "b63269086db4d636d88cee06393dc21c345339a714b1fe0a0cab75adf5f3d4d0",
+      "bytes": 3119
+    },
+    {
+      "path": "docs/metodo-e-leitura.md",
+      "sha256": "2adc536f2f4d9f6b31ae42425fa9bc95d3443b497c360415b04a4b98a2212283",
+      "bytes": 3175
+    },
+    {
+      "path": "evidence/o-que-encontramos.md",
+      "sha256": "6608c45ca99125245de64558bd10b770ebcb942214a8b5c89aae25b20a4f4ee7",
+      "bytes": 8730
+    },
+    {
+      "path": "evidence/trajetoria-de-origem.md",
+      "sha256": "603202e4bacdad5ebca49963984d52279acac7dc4d4a56f470a47f0c9d53d949",
+      "bytes": 3984
+    },
+    {
+      "path": "evidence/inventario-publico.md",
+      "sha256": "a7031772e1ced999c3edf634b753422504d86d45f768a4eef35d140a75782d78",
+      "bytes": 4293
+    },
+    {
+      "path": "evidence/mapa-de-sinais.md",
+      "sha256": "93c98a98f6a97ec74cb2ca6914136b3d1af3a387ff7f4424c101c8cc2ac4653a",
+      "bytes": 4309
+    },
+    {
+      "path": "evidence/relacoes-publicas.md",
+      "sha256": "7a0532a9d9742fd6e56331f57f745aca9cc3292a1d86657890b422faa63e6039",
+      "bytes": 4606
+    },
+    {
+      "path": "evidence/producao-local-e-on-farm.md",
+      "sha256": "0f52ee0a9e069edc4150858006c56add34d2ec52f779686122edc14d5d5763ac",
+      "bytes": 4142
+    },
+    {
+      "path": "evidence/trichoderma-industrial.md",
+      "sha256": "d513f22e5e72cbdbd9667ec0a5a64995e0682111e9444ed061150b95f1f8be27",
+      "bytes": 3847
+    },
+    {
+      "path": "evidence/petrobras-microalgas.md",
+      "sha256": "729d2e2e20dacef38a802b6af3eeeb565f661dae56e07ac227883e169a192f3f",
+      "bytes": 2989
+    },
+    {
+      "path": "evidence/pivot-bio.md",
+      "sha256": "83fccc949dfdaab5a0d43b8049ea21c40ee267d981a4b17e41124fdeea2f7a64",
+      "bytes": 3544
+    },
+    {
+      "path": "evidence/como-a-maquina-encontra.md",
+      "sha256": "032843a139fab78be0ba16d60abbd17085e449c76aa9850ae610f2b920fafabd",
+      "bytes": 3145
+    },
+    {
+      "path": "evidence/relacoes-v2.md",
+      "sha256": "e013ab72ac7467792ffe8a21333d73685e2cb93f23a0ac57015c193f528c2fa8",
+      "bytes": 4566
+    },
+    {
+      "path": "provenance/README.md",
+      "sha256": "4a593d905e9fa3e00d183b5ee163b0c6c43312d334a091e0215fcaf8dc115b81",
+      "bytes": 3850
+    },
+    {
+      "path": "provenance/fontes-e-limites.md",
+      "sha256": "001329787f0d38ef880c09106e4e7aca459ca2ca281f6611db5ac78f0ccc8921",
+      "bytes": 2063
+    },
+    {
+      "path": "provenance/evidence-register-v2.json",
+      "sha256": "0e2fdbf1207df87516c557729e3fd47e7dc10ca757b2ab629e2990ebef3c2d55",
+      "bytes": 10125
+    },
+    {
+      "path": "provenance/manifest-publico.json",
+      "sha256": "8133dce6c62a7c8c6db84815d87445c84c980ad59c0a3e05ece0da5e0c7c61a7",
+      "bytes": 474
+    },
+    {
+      "path": "provenance/manifest-publico-v2.json",
+      "sha256": null,
+      "bytes": null
+    },
+    {
+      "path": "examples/metadata-only-record.json",
+      "sha256": "5c20aa29521d8fd741ecf9718121475bc0aa63255c6bcbf60d72f8a6a48df1bc",
+      "bytes": 634
+    },
+    {
+      "path": "site/index.html",
+      "sha256": "8a0fc9348741480ede8a6af46d3bc8c24d52ccb075827fce8a8a86723254d533",
+      "bytes": 25225
+    }
+  ],
+  "rights_policy": "Identifiers and links are provided for discovery; third-party text, images, documents, claims and abstracts are not relicensed or redistributed by this release.",
+  "excluded_classes": [
+    "raw_corpus",
+    "complete_normalized_corpus",
+    "full_documents",
+    "PDFs",
+    "attachments",
+    "extended_API_responses",
+    "complete_queries",
+    "search_strategies",
+    "adaptive_states",
+    "frontier",
+    "private_memory",
+    "ASIE",
+    "prompts",
+    "private_heuristics",
+    "operational_scripts",
+    "private_logs",
+    "credentials",
+    "internal_executor_files",
+    "private_data"
+  ],
+  "limitations": [
+    "The snapshot is metadata-only and is not a complete scientific or commercial survey.",
+    "Counts describe records, actors, institutions, observed relations and application signals in this investigation snapshot; they do not describe unique technologies or market size.",
+    "The public projection is selected and is not the canonical internal knowledge layer.",
+    "A public patent identifier does not establish validity, claim scope, ownership, freedom to operate, efficacy, safety, adoption or commercial availability.",
+    "A failed query in a defined filter does not prove general absence.",
+    "Full texts and raw acquisition payloads remain outside this release."
+  ],
+  "validation": {
+    "hashes_required": true,
+    "links_required": true,
+    "public_boundary_scan_required": true,
+    "count_consistency_required": true,
+    "manifest_self_hash_excluded": true
+  },
+  "related_infrastructure": {
+    "tracefoundry": "https://github.com/viniburilux/TraceFoundry",
+    "private_laboratory": "not_republished_in_this_release"
+  }
+}

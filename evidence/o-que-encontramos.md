@@ -2,6 +2,8 @@
 
 A investigação começou procurando conexões entre literatura, patentes, organismos, instituições e aplicações. O que apareceu não foi uma tecnologia única nem uma linha simples de produto. Apareceram **pontes parciais, recorrências e limites claros**.
 
+A release pública V2 amplia essa leitura com quatro trilhas próprias: [produção local e on-farm](producao-local-e-on-farm.md), [Trichoderma industrial](trichoderma-industrial.md), [Petrobras e microalgas](petrobras-microalgas.md) e [Pivot Bio](pivot-bio.md). O que segue continua sendo a porta de entrada para os oito achados que definiram o primeiro mapa.
+
 ## 1. Encontramos uma ponte concreta entre biologia, processo e formulação
 
 A relação mais específica do corpus envolve *Bacillus velezensis* CMRP 4490. O mesmo identificador de strain aparece em um artigo que descreve atividade antifúngica e capacidade de promoção de crescimento e em uma família patentária brasileira que descreve processo fermentativo em biorreator de tanque agitado e formulações para bionematicida e/ou inoculante. UEL aparece associada aos registros.
@@ -9,6 +11,8 @@ A relação mais específica do corpus envolve *Bacillus velezensis* CMRP 4490. 
 Esta é uma **continuidade de metadata e texto observada** entre literatura, processo e formulação. Ela não prova validade da patente, eficácia, adoção comercial, liberdade de operação ou identidade legal perfeita de todos os nomes.
 
 > **O achado:** CMRP 4490 é a ponte mais específica encontrada entre caracterização biológica, processo em biorreator e formulação patentária.
+
+Leia as âncoras no [registro público de evidências V2](../provenance/evidence-register-v2.json).
 
 ## 2. Encontramos um segundo caminho: strain, aplicação em soja e patente
 
@@ -26,6 +30,8 @@ A investigação também encontrou uma ponte específica entre *Trichoderma harz
 
 > **O achado:** Trichoderma funciona como uma ponte de navegação entre bioinsumos agrícolas e bioprocessos industriais. O corpus não mostrou uma única “tecnologia Trichoderma”.
 
+A [trilha industrial](trichoderma-industrial.md) mostra essa passagem com famílias patentárias específicas.
+
 ## 4. Encontramos uma cadeia brasileira de processo
 
 A expansão reuniu registros e atores recorrentes em torno de **biorreator → fermentação → produção na propriedade → controle de parâmetros → bioinsumo**. A cadeia aparece em documentos associados a USP, Embrapa, Simple Agro e Solubio, com biorreatores, formulações microbianas, controle de parâmetros, multiplicação a campo e produção rural.
@@ -33,6 +39,8 @@ A expansão reuniu registros e atores recorrentes em torno de **biorreator → f
 Essa é uma cadeia tecnológica representada por registros distintos. Ela não deve ser contada como uma plataforma única nem como prova de adoção comercial comparável entre os atores.
 
 > **O achado:** o bioinsumo aparece no corpus não apenas como produto final, mas também como processo de produção, controle e formulação.
+
+A [trilha de produção local e on-farm](producao-local-e-on-farm.md) aprofunda os registros de processo e equipamento.
 
 ## 5. Encontramos recorrência de portfólio em torno de Pivot Bio
 
@@ -42,19 +50,23 @@ A repetição é documental e temática. Ela não é um ranking de mercado e nã
 
 > **O achado:** uma mesma organização reaparece em uma sequência coerente de problemas de produto e formulação, conectando nitrogênio, fósforo, estabilidade e liberação.
 
+Veja a [matriz pública de temas e famílias](pivot-bio.md).
+
 ## 6. Encontramos uma conexão improvável — e mantivemos seu tamanho real
 
-A trilha Petrobras–microalgas–fertilizante sobreviveu à tentativa de expansão. Uma reformulação em português recuperou uma família ligada a biomassa algal e fertilizante organomineral, conectando microalga, cascalho de perfuração, biofixação e fertilizante.
+A trilha Petrobras–microalgas–fertilizante sobreviveu à tentativa de expansão. Uma reformulação em português recuperou famílias ligadas a biomassa algal e fertilizante organomineral, conectando microalga, cascalho de perfuração, biofixação e fertilizante.
 
-A trilha permanece estreita: há uma relação patentária recuperada, não um corredor industrial amplo nem uma solução agrícola validada.
+A trilha permanece estreita: há uma relação patentária recuperada e um processo relacionado, não um corredor industrial amplo nem uma solução agrícola validada.
 
 > **O achado:** uma conexão improvável apareceu no corpus; sua importância está em abrir uma pergunta específica, não em autorizar uma grande conclusão.
+
+Leia o [aprofundamento Petrobras–microalgas](petrobras-microalgas.md).
 
 ## 7. Encontramos onde a busca pelo nome exato morreu
 
 As buscas exatas por Ag75 e Ag109 não abriram uma família brasileira no filtro utilizado. Ainda assim, os registros bibliográficos mostraram mecanismos e contextos relevantes: Ag75 em biocontrole, solubilização de fosfato e promoção de crescimento em milho e soja; Ag109 em genoma, nematoides e *Sclerotinia sclerotiorum*.
 
-Esse resultado negativo mudou a investigação. O caminho deixou de seguir apenas o nome da strain e passou a seguir mecanismo, cultura, instituição e relação com outras entidades.
+Esse resultado negativo mudou a investigação. O caminho deixou de seguir apenas o nome da strain e passou a seguir mecanismo, cultura, instituição e relação com outras entidades. A página [Como a máquina encontra](como-a-maquina-encontra.md) mostra essa mudança de representação.
 
 > **O achado:** a busca pelo nome exato não sustentou uma continuidade patentária; o mecanismo e o contexto abriram perguntas melhores.
 

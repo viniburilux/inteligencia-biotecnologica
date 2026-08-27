@@ -1,92 +1,65 @@
 # Inteligência Biotecnológica
 
-> **Uma camada pública para acompanhar o que está sendo investigado, o que foi encontrado e quais perguntas continuam abertas na biotecnologia.**
+> **Uma camada pública para mostrar o que uma inteligência investigativa consegue enxergar quando literatura, patentes, organismos, processos e instituições começam a conversar.**
 
-[![Status](https://img.shields.io/badge/status-public%20research-blue)](docs/STATUS.md)
-[![Evidence](https://img.shields.io/badge/evidence-metadata--only-green)](docs/DATA_POLICY.md)
+[![Status](https://img.shields.io/badge/status-public%20intelligence-blue)](docs/STATUS.md)
+[![Release](https://img.shields.io/badge/release-public--v2-7cdb8a)](provenance/manifest-publico-v2.json)
+[![Evidence](https://img.shields.io/badge/evidence-traceable-green)](provenance/README.md)
 [![Pages](https://img.shields.io/badge/site-GitHub%20Pages-orange)](https://viniburilux.github.io/inteligencia-biotecnologica/)
 
-## O que é este repositório
+## O que essa inteligência consegue enxergar?
 
-A inteligência biotecnológica está espalhada por literatura científica, patentes, organizações, inventores, organismos, processos, aplicações e sinais regulatórios. Este repositório organiza uma parte desse conhecimento em uma camada pública de **investigação, evidência e síntese**.
+A biotecnologia agropecuária não apareceu como uma lista de organismos ou produtos. Apareceu como uma rede de pontes: uma strain que atravessa caracterização e formulação, um processo que conecta biorreator e produção na propriedade, um organismo que aparece tanto no biocontrole quanto na biorefinaria, ou uma busca que só começa a funcionar quando muda a forma de representar a pergunta.
 
-O objetivo não é publicar uma resposta definitiva nem expor a máquina operacional que produz cada rodada de pesquisa. O objetivo é tornar legível uma trajetória: **qual problema foi observado, que pergunta orientou a investigação, quais fontes sustentam os achados, que relações apareceram e o que ainda não pode ser afirmado**.
+A release pública V2 apresenta uma seleção desses sinais em linguagem de comunicação. A camada de investigação mantém os registros, fontes, estados epistemológicos e limites que sustentam cada narrativa. O objetivo da página não é simular um artigo científico; é mostrar **capacidade, escala, relações e perguntas melhores**, permitindo que qualquer pessoa aprofunde até a evidência.
 
-O primeiro caso de uso é a biotecnologia agropecuária. Ele funciona como um campo de investigação concreto para testar perguntas sobre bioinsumos, biocontrole, inoculantes, biofertilizantes, microrganismos, fermentação, aplicações agrícolas e transições industriais.
+## Comece pelas trilhas
 
-## Comece pelo que foi encontrado
-
-A melhor porta de entrada é o [site público](https://viniburilux.github.io/inteligencia-biotecnologica/), que apresenta a investigação na ordem **problema → pergunta → investigação → evidências → achados → implicações → limitações → método**.
-
-Para saber o que a investigação já encontrou, comece por [O que encontramos](evidence/o-que-encontramos.md). Depois, percorra a [trajetória de origem](evidence/trajetoria-de-origem.md), o [inventário público](evidence/inventario-publico.md), o [mapa de sinais](evidence/mapa-de-sinais.md) e a [proveniência das fontes](provenance/README.md). A documentação metodológica explica como ler os registros sem confundir presença em uma fonte com validade, novidade, viabilidade comercial ou adequação agronômica.
-
-## O que este repositório publica
-
-| Camada | O que você encontra |
+| Trilha | O que aparece |
 |---|---|
-| **Conhecimento** | Contexto do problema, perguntas de investigação, sínteses e relações identificadas |
-| **Achados** | Pontes, recorrências, resultados negativos, refinamentos e perguntas abertas |
-| **Evidência** | Inventários, sinais, mapas, identificadores, URLs e estados epistemológicos |
-| **Proveniência** | Fonte, data de captura, transformação aplicada, hashes e limitações |
-| **Demonstrações** | Visualizações e exemplos metadata-only ou sintéticos |
-| **Governança** | Política de dados, critérios de interpretação e limites de uso |
+| [Produção local e on-farm](evidence/producao-local-e-on-farm.md) | Biorreatores, fermentação, controle, módulos e produção de bioinsumos na propriedade. |
+| [Trichoderma industrial](evidence/trichoderma-industrial.md) | A passagem de biocontrole agrícola para enzimas, biomassa, fermentação e etanol. |
+| [Petrobras e microalgas](evidence/petrobras-microalgas.md) | Uma conexão estreita entre cascalho de perfuração, biofixação de CO₂, algas e fertilizante. |
+| [Pivot Bio](evidence/pivot-bio.md) | Um portfólio documental em torno de nitrogênio, fosfato, estabilidade e liberação. |
+| [Como a máquina encontra](evidence/como-a-maquina-encontra.md) | O movimento que transforma uma pergunta insuficiente em uma representação mais informativa. |
+| [Relações públicas V2](evidence/relacoes-v2.md) | As conexões do mapa, separadas por tipo e estado. |
 
-Os artefatos publicados foram escolhidos para demonstrar conhecimento e credibilidade sem entregar estratégias de busca, memória, priorização, heurísticas adaptativas, ciclos autônomos ou pipelines operacionais privados.
+## O que já apareceu
 
-## O que não é publicado aqui
+A V2 preserva os oito achados que formam a base da investigação: CMRP 4490 entre literatura, processo e formulação; LABIM22 entre strain, soja e patente; Trichoderma atravessando agricultura e indústria; o bioinsumo aparecendo como processo; Pivot Bio reaparecendo como portfólio temático; Petrobras–microalgas–fertilizante sobrevivendo em uma trilha estreita; Ag75/Ag109 mostrando o valor de um resultado negativo; e a conclusão de que o corpus revela continuidade parcial, não uma linha simples `strain → produto`.
 
-Este repositório não é uma cópia reduzida do laboratório Agro e não pretende expor sua implementação. Queries completas, corpus bruto, respostas extensas de APIs, estados adaptativos, memória de investigação, políticas internas de priorização, heurísticas privadas, ciclos autônomos e scripts operacionais específicos permanecem fora desta camada pública.
+Leia a síntese em [O que encontramos](evidence/o-que-encontramos.md), depois abra o [inventário V2](evidence/inventario-publico.md) e o [mapa de sinais V2](evidence/mapa-de-sinais.md).
 
-O laboratório completo de Inteligência Biotecnológica Agropecuária está no repositório privado [`inteligencia-biotecnologica-agropecuaria`](https://github.com/viniburilux/inteligencia-biotecnologica-agropecuaria). A existência desse repositório privado não altera o compromisso de tornar pública a evidência que for deliberadamente selecionada, revisada e contextualizada.
+## Como ler a evidência
 
-## Relação com o TraceFoundry
+Cada publicação segue uma regra simples:
 
-O [TraceFoundry](https://github.com/viniburilux/TraceFoundry) é a infraestrutura pública geral de **discovery, evidence, provenance e investigation**. Este repositório não duplica esse núcleo.
+> **Achado → evidência → interpretação → limite.**
 
-A separação é intencional:
+`observed` indica algo diretamente encontrado em uma fonte. `inferred` indica uma relação derivada de observações. `hypothesis` mantém uma pergunta aberta. `insufficient`, `blocked`, `rejected` e `contradicted` são estados válidos; eles mostram onde o mapa para.
 
-> **TraceFoundry** fornece a infraestrutura geral.  
-> **Inteligência Biotecnológica** organiza conhecimento, investigação e evidência pública sobre biotecnologia.  
-> **Inteligência Biotecnológica Agropecuária** é o laboratório privado onde a investigação específica é executada.
+A [camada de provenance](provenance/README.md) explica fonte, data, transformação, hash quando aplicável e limitação. O [registro público de evidências V2](provenance/evidence-register-v2.json) permite seguir os identificadores que sustentam as novas trilhas.
 
-## Como ler os resultados
+## O que esta camada publica
 
-Cada achado deve ser interpretado com seu estado epistemológico. `observed` indica algo diretamente sustentado por uma fonte capturada; `inferred` indica uma relação derivada por regra explícita; `hypothesis` indica uma possibilidade ainda não testada; `insufficient` indica que a evidência não basta; `blocked` registra uma limitação de acesso ou verificação; `rejected` e `contradicted` preservam resultados que não devem ser tratados como confirmação.
+A publicação contém textos originais, sínteses, relações selecionadas, identificadores públicos, URLs, datas, hashes de artefatos publicados, estados epistemológicos e exemplos metadata-only. Ela não é uma cópia do laboratório privado e não pretende entregar todo o corpus como se cada registro fosse uma conclusão.
 
-A presença de uma patente, artigo, empresa, universidade ou organismo em um registro não prova, isoladamente, validade jurídica, novidade, titularidade atual, liberdade de operação, disponibilidade para licenciamento, eficácia, viabilidade comercial, segurança ou adequação agronômica.
+Não são publicados aqui código interno, prompts, ASIE, logs, frontier, memória operacional, queries completas, heurísticas adaptativas, pipelines privados, corpus raw completo, documentos integrais, PDFs, anexos, sequências ou dados científicos baixados. O laboratório privado continua separado; esta página é uma projection pública deliberada.
 
-## Estrutura
+## Relação com o ecossistema
 
-```text
-.
-├── README.md
-├── docs/
-│   ├── DATA_POLICY.md
-│   ├── PROVENANCE.md
-│   ├── STATUS.md
-│   └── metodo-e-leitura.md
-├── evidence/
-│   ├── o-que-encontramos.md
-│   ├── trajetoria-de-origem.md
-│   ├── inventario-publico.md
-│   ├── mapa-de-sinais.md
-│   └── relacoes-publicas.md
-├── provenance/
-│   ├── README.md
-│   ├── fontes-e-limites.md
-│   └── manifest-publico.json
-├── examples/
-│   └── metadata-only-record.json
-├── site/
-│   └── index.html
-├── .github/workflows/
-│   └── pages.yml
-└── LICENSE
-```
+> **Lux-Lab** preserva o laboratório privado e seus mecanismos.
+> **Data Intelligence** organiza a representação interna do conhecimento.
+> **Inteligência Biotecnológica** projeta uma seleção pública legível e rastreável.
+> **TraceFoundry** fornece infraestrutura pública geral para discovery, evidence, provenance e investigation.
+
+## Release
+
+A release formal desta camada é [`inteligencia-biotecnologica-public-v2`](provenance/manifest-publico-v2.json). Seus números descrevem um snapshot cumulativo metadata-only: **763 obras/registros, 2.680 atores, 767 instituições, 4.045 relações observadas e 536 sinais de aplicação**. A composição informa escopo, fontes, deduplicação, limitações e artefatos publicados; ela não afirma cobertura total do campo.
 
 ## Participação
 
-Contribuições são bem-vindas quando melhoram a clareza da investigação, a rastreabilidade das fontes ou a distinção entre observação e interpretação. Antes de propor alterações em dados derivados, consulte a [política de dados](docs/DATA_POLICY.md) e a [política de proveniência](docs/PROVENANCE.md).
+Contribuições são bem-vindas quando aumentam a clareza, a rastreabilidade e a distinção entre observação e interpretação. Antes de propor alterações, consulte a [política pública de dados](docs/DATA_POLICY.md), a [proveniência](docs/PROVENANCE.md) e o [status da release](docs/STATUS.md).
 
 ## Licença
 
@@ -94,6 +67,5 @@ O código e os textos originais deste repositório são disponibilizados conform
 
 ## Referências
 
-[1]: https://github.com/viniburilux/TraceFoundry "TraceFoundry — infraestrutura pública geral"
-[2]: https://github.com/viniburilux/inteligencia-biotecnologica-agropecuaria "Laboratório privado Agro"
-[3]: https://viniburilux.github.io/inteligencia-biotecnologica/ "Site público de Inteligência Biotecnológica"
+[1]: https://viniburilux.github.io/inteligencia-biotecnologica/ "Página pública de Inteligência Biotecnológica"
+[2]: https://github.com/viniburilux/TraceFoundry "TraceFoundry — infraestrutura pública geral"

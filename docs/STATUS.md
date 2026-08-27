@@ -2,24 +2,49 @@
 
 ## Situação atual
 
-Este repositório é a camada pública de conhecimento, investigação e evidência da Inteligência Biotecnológica. O trabalho está em estado de **pesquisa pública em construção**. A biotecnologia agropecuária é o primeiro caso de uso documentado, mas a identidade do repositório é deliberadamente mais ampla que esse domínio.
+Este repositório é a camada pública de conhecimento, investigação e demonstração da Inteligência Biotecnológica. A release atual é **`inteligencia-biotecnologica-public-v2`**.
 
-## O que já existe
+A biotecnologia agropecuária continua sendo o primeiro campo concreto. A V2 amplia a vitrine com trilhas sobre produção local/on-farm, Trichoderma industrial, Petrobras–microalgas e o portfólio documental da Pivot Bio, preservando os achados anteriores sobre CMRP 4490, LABIM22 e Ag75/Ag109.
 
-A camada pública já contém um inventário inicial de obras e registros, um mapa de sinais, documentação de fontes, notas de verificação, referências regulatórias e uma política de proveniência. Esses artefatos são orientados à descoberta e à organização de sinais; não são conclusões finais.
+## O que a V2 demonstra
 
-## O que não está prometido
+A fotografia cumulativa metadata-only contém:
 
-Não há promessa de cobertura completa do campo, atualização contínua de todas as fontes, validação jurídica de patentes, avaliação experimental de tecnologias, recomendação de investimento ou certificação regulatória. Consultas e processos operacionais completos permanecem no laboratório privado e não são necessários para ler os resultados publicados.
+| Elemento | Quantidade |
+|---|---:|
+| Obras e registros | **763** |
+| Atores | **2.680** |
+| Instituições | **767** |
+| Relações observadas | **4.045** |
+| Sinais de aplicação | **536** |
+| Queries derivadas executadas | **17** |
+| Reformulações que abriram resultados | **3** |
+
+Esses números demonstram escala de observação documental. Não são número de tecnologias únicas, ranking de empresas, validação agronômica ou medida de mercado.
 
 ## Relação entre camadas
 
 | Camada | Função | Visibilidade |
 |---|---|---|
+| Lux-Lab | Laboratório, mecanismos, código, corpus e operação | Privada |
+| Data Intelligence | Representação interna estruturada do conhecimento | Interna/controlada |
+| Inteligência Biotecnológica | Projection pública selecionada, narrativa e evidência | Pública |
 | TraceFoundry | Infraestrutura pública geral de discovery, evidence, provenance e investigation | Pública |
-| Inteligência Biotecnológica | Conhecimento, investigação e evidência pública sobre biotecnologia | Pública |
-| Inteligência Biotecnológica Agropecuária | Execução específica, experimentação e memória do caso Agro | Privada |
+
+## O que está publicado
+
+A V2 contém textos originais, sínteses editoriais, relações selecionadas, identificadores e URLs públicas, status epistemológicos, limitações e provenance. A página prioriza descoberta e demonstração de capacidade; as fichas e o [registro público de evidências](../provenance/evidence-register-v2.json) permitem aprofundamento.
+
+## O que não está prometido
+
+Não há promessa de cobertura completa da biotecnologia, atualização contínua de todas as fontes, validação jurídica de patentes, avaliação experimental, recomendação de investimento, certificação regulatória ou comprovação de eficácia, adoção e disponibilidade comercial.
+
+A release não distribui código interno, prompts, ASIE, logs, frontier, memória operacional, queries completas, heurísticas adaptativas, pipelines privados, corpus raw completo, documentos integrais, PDFs, anexos, sequências ou dados científicos baixados.
 
 ## Critério de publicação
 
-Um artefato entra aqui quando ajuda a demonstrar conhecimento, evidência ou credibilidade pública sem revelar desnecessariamente o laboratório privado. Quando a resposta for negativa ou incerta, o artefato permanece fora desta camada.
+Um artefato entra nesta camada quando consegue demonstrar conhecimento, evidência ou uma relação interessante com narrativa clara, fonte rastreável e limitação disponível, sem revelar desnecessariamente o laboratório privado. A página é uma projection selecionada; o manifesto V2 não é fonte canônica exaustiva.
+
+## Próxima evolução
+
+A próxima evolução natural é aumentar a resolução das fichas de evidência e das relações públicas, não despejar o corpus inteiro. Qualquer mudança que altere a interpretação de um achado deve gerar uma nova release ou registro de correção.

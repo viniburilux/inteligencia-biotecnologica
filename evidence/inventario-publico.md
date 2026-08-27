@@ -1,41 +1,67 @@
-# Inventário público inicial
+# Inventário público V2
 
-**Escopo:** primeiro corpus integrado do caso de uso em biotecnologia agropecuária  
-**Gerado em:** 21 de agosto de 2026  
+**Release:** `inteligencia-biotecnologica-public-v2`
+**Snapshot cumulativo de investigação:** 21 de agosto de 2026
+**Publicação da projection:** 27 de agosto de 2026
 **Modo:** metadata-only
 
-Este inventário reúne registros de literatura e patentes, atores, instituições, relações e sinais de aplicação. Ele organiza possibilidades de conexão e rotas de investigação; não é uma estimativa de mercado nem uma conclusão jurídica, regulatória, comercial ou agronômica.
+## A escala que sustenta o mapa
 
-## Composição
+A fotografia cumulativa desta release contém **763 obras e registros**, ligados a **2.680 atores**, **767 instituições**, **4.045 relações observadas** e **536 sinais de aplicação**. Foram executadas 17 consultas derivadas e três reformulações abriram resultados que não apareciam na representação inicial. [1]
 
-| Camada | Registros |
+Esses números descrevem a escala do corpus e das relações observadas. Eles não são um ranking, uma medida de relevância econômica ou uma conclusão sobre as tecnologias encontradas.
+
+| Medida | V2 |
 |---|---:|
-| Obras e patentes | 429 |
-| Atores | 1.499 |
-| Instituições | 381 |
-| Relações observadas | 2.093 |
-| Sinais de aplicação | 313 |
+| Obras e registros cumulativos | **763** |
+| Atores normalizados | **2.680** |
+| Instituições normalizadas | **767** |
+| Relações observadas | **4.045** |
+| Sinais de aplicação | **536** |
+| Queries derivadas executadas | **17** |
+| Reformulações que abriram resultados | **3** |
 
-| Fonte | Obras/registros | Participação |
-|---|---:|---:|
-| OpenAlex | 186 | 43,4% |
-| Crossref | 146 | 34,0% |
-| Google Patents | 97 | 22,6% |
+## Composição por fonte
 
-A camada patentária contém 97 registros de publicação BR normalizados, deduplicados por identificador de publicação no corpus integrado. O filtro `BR` indica o filtro geográfico utilizado na consulta; não implica, sozinho, origem brasileira da tecnologia.
+| Fonte | Obras/registros observados |
+|---|---:|
+| OpenAlex | 422 |
+| Crossref | 146 |
+| Google Patents | 195 |
+| **Total cumulativo** | **763** |
 
-## Escopo temático
+As fontes foram lidas em modo metadata-only. O filtro `BR` utilizado em consultas patentárias indica o recorte da busca, não prova sozinho origem brasileira, titularidade, validade ou capacidade local. [1] [2]
 
-O corpus cobre bioinsumos, biocontrole, inoculantes, biofertilizantes, biopesticidas, fixação de nitrogênio, solubilização de fosfato, saúde radicular, fermentação e monitoramento de bioinputs.
+## Eixos tecnológicos observados
+
+Os sinais mais recorrentes atravessam biocontrole, fungos, bioinsumos, biopesticidas, inoculantes, promoção de crescimento, fermentação, bioprocesso, nematoides, biofertilizantes, fixação de nitrogênio, solubilização de fosfato, saúde radicular, soja, milho, monitoramento de qualidade e sequestro/biofixação de carbono.
+
+A leitura pública organiza esses sinais em quatro trilhas:
+
+1. **Produção próxima do campo:** biorreator, fermentação, controle, multiplicação, módulos e produção on-farm.
+2. **Biocontrole e biopesticidas:** organismos, mecanismos, culturas e aplicações de proteção.
+3. **Nitrogênio, fosfato e rizosfera:** funções microbianas, formulações, estabilidade e entrega.
+4. **Bioprocessos e transições industriais:** enzimas, biomassa, resíduos, fermentação e etanol.
+
+Essas trilhas são formas de leitura do corpus, não categorias definitivas de mercado ou de tecnologia.
+
+## Relações que aparecem no mapa
+
+As relações preservadas nesta camada incluem autoria, invenção, afiliação, atribuição, associação com sinais de aplicação e conexões documentais selecionadas. Uma relação observada pode ligar um autor a uma obra ou uma strain a um registro; uma relação agregada pode ser inferida por uma regra explícita. Nenhuma dessas classes deve ser automaticamente lida como parceria, causalidade, eficácia ou adoção.
+
+## O que a V2 torna visível
+
+A release amplia a vitrine pública com quatro trilhas novas: produção local/on-farm, Trichoderma industrial, Petrobras–microalgas e Pivot Bio. Ela também preserva os achados anteriores sobre CMRP 4490, LABIM22 e o resultado negativo de Ag75/Ag109.
+
+A fotografia pública continua sendo uma seleção. Ela não distribui o corpus raw, o dataset normalizado completo, documentos integrais, PDFs, anexos, sequências, dados científicos, memória adaptativa ou mecanismos operacionais.
 
 ## Proveniência e limites
 
-Cada registro normalizado mantém referência à fonte pública, ao lote de captura e ao hash correspondente quando esse dado é necessário para auditoria. O corpus público não distribui PDFs, documentos integrais, sequências, anexos ou dados científicos experimentais.
+Cada artefato publicado declara a fonte, o tipo de transformação, o estado epistemológico e as limitações relevantes. A seleção V2 foi derivada dos artefatos metadata-only já existentes no laboratório Agro; nenhum documento novo foi coletado para esta release. O [manifesto V2](../provenance/manifest-publico-v2.json) lista os artefatos públicos e seus hashes.
 
-Os registros são adequados para descoberta e organização de sinais. Não devem ser usados isoladamente para concluir validade jurídica, estado legal, liberdade de operação, eficácia, segurança, viabilidade comercial, adoção agrícola, titularidade econômica ou adequação a uma aplicação.
+> **O inventário mostra onde o campo ficou conectado. Não afirma que toda conexão representa uma tecnologia validada, um produto comercial ou uma relação causal.**
 
-## Como ler
+## Referências
 
-Os números descrevem o que foi capturado e normalizado em uma determinada rodada. Um mesmo documento pode aparecer em mais de uma consulta antes da deduplicação. Uma relação observada pode ser autoria, invenção, atribuição, afiliação ou outra relação explicitamente sustentada pelo registro; não deve ser convertida automaticamente em causalidade, parceria ou influência.
-
-Consulte também o [mapa de sinais](mapa-de-sinais.md), a [política de dados](../docs/DATA_POLICY.md) e a [proveniência pública](../provenance/README.md).
+[1]: https://github.com/viniburilux/inteligencia-biotecnologica/blob/main/provenance/manifest-publico-v2.json "Manifesto público V2"
+[2]: https://github.com/viniburilux/inteligencia-biotecnologica/blob/main/provenance/evidence-register-v2.json "Registro público de evidências V2"

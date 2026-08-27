@@ -1,67 +1,10 @@
 {
   "manifest": "inteligencia-biotecnologica-public-v1",
-  "generated_at": "2026-08-25",
+  "status": "superseded",
+  "superseded_by": "manifest-publico-v2.json",
+  "release_id_current": "inteligencia-biotecnologica-public-v2",
+  "note": "This historical manifest remains as a compatibility pointer. The current public snapshot, counts, scope and artifact hashes are maintained in manifest-publico-v2.json.",
   "visibility": "public",
-  "purpose": "knowledge_evidence_and_provenance",
   "metadata_only": true,
-  "case_study": "agricultural_biotechnology",
-  "related_public_infrastructure": {
-    "name": "TraceFoundry",
-    "url": "https://github.com/viniburilux/TraceFoundry",
-    "role": "general discovery, evidence, provenance and investigation infrastructure"
-  },
-  "private_laboratory": {
-    "name": "Inteligência Biotecnológica Agropecuária",
-    "url": "https://github.com/viniburilux/inteligencia-biotecnologica-agropecuaria",
-    "role": "private domain-specific research workspace"
-  },
-  "public_artifacts": [
-    "README.md",
-    "docs/DATA_POLICY.md",
-    "docs/PROVENANCE.md",
-    "docs/STATUS.md",
-    "docs/metodo-e-leitura.md",
-    "evidence/inventario-publico.md",
-    "evidence/mapa-de-sinais.md",
-    "evidence/relacoes-publicas.md",
-    "provenance/fontes-patentarias.md",
-    "provenance/README.md",
-    "examples/metadata-only-record.json",
-    "site/index.html"
-  ],
-  "source_families": [
-    "OpenAlex",
-    "Crossref",
-    "Google Patents",
-    "INPI",
-    "MAPA",
-    "Embrapa AgroAPI"
-  ],
-  "published_inventory_snapshot": {
-    "works_or_records": 429,
-    "actors": 1499,
-    "institutions": 381,
-    "observed_relations": 2093,
-    "application_signals": 313,
-    "source_mix": {
-      "openalex": 186,
-      "crossref": 146,
-      "google_patents": 97
-    }
-  },
-  "excluded_classes": [
-    "raw_corpus",
-    "complete_queries",
-    "search_strategies",
-    "adaptive_states",
-    "memory",
-    "autonomous_cycles",
-    "operational_scripts",
-    "internal_prioritization_policies",
-    "private_heuristics",
-    "extended_api_responses",
-    "unnecessary_intermediate_data",
-    "full_documents_and_attachments"
-  ],
-  "interpretation_rule": "Public artifacts demonstrate knowledge, evidence and credibility without unnecessarily exposing the private laboratory."
+  "canonicality": "projection_not_canonical"
 }
