@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LuxAgro Intelligence — Engine de Investigação para o Agro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #071f1b;
+    --panel: #0d2d27;
+    --panel-2: #123a32;
+    --border: rgba(214,245,224,0.14);
+    --border-strong: rgba(214,245,224,0.30);
+    --text: #f1f8f1;
+    --text-dim: #b9d0c2;
+    --text-faint: #7d9b8e;
+    --blue: #9fe6c7;
+    --blue-bright: #d9f56a;
+    --blue-dim: rgba(217,245,106,0.12);
+    --ok: #8fe3aa;
+    --warn: #ffd166;
+    --gap: #ff8d82;
+    --max: 860px;
+    --radius: 12px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* fine technical grid backdrop */
+  body::before{
+    content:"";
+    position: fixed; inset:0;
+    background-image:
+      linear-gradient(rgba(217,245,106,0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(217,245,106,0.045) 1px, transparent 1px);
+    background-size: 42px 42px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black, transparent 75%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  h1,h2,h3{
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0;
+    color: var(--text);
+  }
+
+  .mono{ font-family: 'IBM Plex Mono', monospace; }
+
+  .eyebrow{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--blue-bright);
+    margin: 0 0 14px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .eyebrow::before{
+    content:"";
+    width: 6px; height: 6px;
+    background: var(--blue-bright);
+    display: inline-block;
+  }
+
+  p{ margin: 0; color: var(--text-dim); }
+  a{ color: inherit; }
+
+  section{
+    position: relative;
+    z-index: 1;
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 88px 24px;
+  }
+
+  .divider{
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .divider span{
+    display:block;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .reveal{
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.is-visible{ opacity: 1; transform: translateY(0); }
+
+  /* ---------- HERO ---------- */
+
+  .hero{
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 56px;
+    padding-bottom: 40px;
+  }
+
+  .hero-top{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 52px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+    color: var(--text-faint);
+  }
+  .hero-top .tag{
+    border: 1px solid rgba(217,245,106,0.42);
+    color: var(--blue-bright);
+    padding: 6px 11px;
+    border-radius: 999px;
+    background: rgba(217,245,106,0.07);
+  }
+
+  .hero h1{
+    font-size: clamp(32px, 8vw, 52px);
+    line-height: 1.1;
+    max-width: 13ch;
+  }
+  .hero h1 span{ color: var(--blue-bright); }
+
+  .hero-sub{
+    margin-top: 20px;
+    max-width: 44ch;
+    font-size: 18px;
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .hero-complement{
+    margin-top: 14px;
+    max-width: 50ch;
+    font-size: 15px;
+    color: var(--text-dim);
+  }
+
+  /* investigation trace terminal */
+  .trace{
+    margin-top: 44px;
+    background: linear-gradient(145deg, rgba(18,58,50,.96), rgba(13,45,39,.98));
+    border: 1px solid var(--border-strong);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 22px 70px rgba(0,0,0,.18);
+  }
+  .trace-head{
+    display:flex;
+    align-items:center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    color: var(--text-faint);
+    text-transform: uppercase;
+  }
+  .trace-head .dot{ width: 7px; height: 7px; border-radius: 50%; background: var(--border-strong); }
+  .trace-body{
+    padding: 18px 16px 22px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    line-height: 1.85;
+  }
+  .trace-line{
+    opacity: 0;
+    animation: fadein-line 0.45s ease forwards;
+  }
+  .trace-line .k{ color: var(--blue-bright); }
+  .trace-line .v{ color: var(--text-dim); padding-left: 18px; display:block; }
+  .trace-line .stat-ok{ color: var(--ok); }
+  .trace-line .stat-warn{ color: var(--warn); }
+  .trace-line .stat-gap{ color: var(--gap); }
+  .trace-cursor{
+    display:inline-block;
+    width: 7px; height: 13px;
+    background: var(--blue-bright);
+    margin-left: 4px;
+    vertical-align: -2px;
+    animation: blink 1s step-end infinite;
+  }
+  @keyframes fadein-line{ to{ opacity: 1; } }
+  @keyframes blink{ 50%{ opacity: 0; } }
+
+  .scroll-cue{
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--text-faint);
+    text-transform: uppercase;
+  }
+  .scroll-cue::before{ content:""; width: 22px; height: 1px; background: var(--text-faint); }
+
+  /* ---------- SECTION HEADS ---------- */
+
+  .section-head{ margin-bottom: 26px; }
+  .section-head h2{ font-size: clamp(24px, 5vw, 32px); max-width: 20ch; }
+
+  .lede{ font-size: 17px; color: var(--text); max-width: 42ch; margin-bottom: 16px; font-weight: 500; }
+  .body-text{ max-width: 56ch; font-size: 15px; }
+  .body-text + .body-text{ margin-top: 14px; }
+  .body-text strong{ color: var(--text); font-weight: 600; }
+
+  .pull{
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text);
+    max-width: 20ch;
+    margin: 22px 0;
+    line-height: 1.4;
+  }
+  .pull .no{ color: var(--text-faint); }
+  .pull .yes{ color: var(--blue-bright); }
+
+  /* ---------- COMO FUNCIONA (pipeline) ---------- */
+
+  .pipeline{ margin-top: 36px; display: flex; flex-direction: column; }
+  .pnode{
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 16px;
+    position: relative;
+    padding-bottom: 30px;
+  }
+  .pnode:last-child{ padding-bottom: 0; }
+  .pnode-marker{
+    width: 36px; height: 36px;
+    border: 1px solid var(--border-strong);
+    border-radius: 6px;
+    display: flex; align-items:center; justify-content:center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--blue-bright);
+    background: var(--panel);
+    position: relative;
+    z-index: 1;
+  }
+  .pnode:not(:last-child)::before{
+    content:"";
+    position: absolute;
+    left: 17px; top: 36px; bottom: -6px;
+    width: 1px;
+    background: var(--border);
+  }
+  .pnode h3{ font-size: 17px; font-weight: 600; margin-bottom: 5px; }
+  .pnode p{ font-size: 14px; max-width: 48ch; }
+
+  /* ---------- CARD GRIDS ---------- */
+
+  .grid2{
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .card{
+    background: var(--panel);
+    padding: 22px 20px;
+  }
+  .card .k{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--blue-bright);
+    margin-bottom: 8px;
+    display:block;
+  }
+  .card h3{ font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+  .card p{ font-size: 13.5px; }
+
+  @media (min-width: 640px){
+    .grid2{ grid-template-columns: 1fr 1fr; }
+  }
+
+  .stack{
+    margin-top: 30px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 18px 16px;
+    text-align: center;
+    background: var(--panel);
+  }
+  .stack-core{
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--blue-bright);
+    font-weight: 600;
+  }
+  .stack-arrow{ color: var(--text-faint); font-size: 13px; margin: 6px 0; }
+  .stack-layers{
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--text-dim);
+    line-height: 1.9;
+  }
+
+  .hierarchy{
+    margin-top: 16px;
+    font-size: 12px;
+    letter-spacing: 0.02em;
+    color: var(--text-dim);
+    line-height: 2;
+  }
+  .hierarchy span{ color: var(--blue-bright); margin: 0 4px; }
+
+  /* ---------- DEMO ---------- */
+
+  .demo{ background: linear-gradient(145deg, rgba(18,58,50,.98), rgba(13,45,39,.98)); border: 1px solid var(--border-strong); border-radius: 18px; padding: 40px 28px; box-shadow: 0 22px 70px rgba(0,0,0,.20); }
+  @media (min-width: 640px){ .demo{ padding: 48px 40px; } }
+
+  .demo-tag{
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--ok);
+    background: rgba(52,211,153,0.1);
+    padding: 6px 11px;
+    border-radius: 3px;
+    margin-bottom: 20px;
+  }
+  .demo-tag::before{ content:""; width: 6px; height: 6px; border-radius: 50%; background: var(--ok); }
+
+  .stat-grid{
+    margin-top: 28px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .stat{ background: var(--panel-2); padding: 18px 16px; }
+  .stat .n{ font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 26px; color: var(--text); display:block; }
+  .stat .l{ font-size: 11.5px; color: var(--text-faint); margin-top: 4px; display:block; }
+
+  .checklist{ margin-top: 28px; display: grid; grid-template-columns: 1fr; gap: 10px; }
+  .checklist .item{ display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; color: var(--text-dim); }
+  .checklist .item::before{
+    content: "✓";
+    color: var(--ok);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    margin-right: 10px;
+  }
+  @media (min-width: 640px){ .checklist{ grid-template-columns: 1fr 1fr; } }
+
+  .demo-note{ margin-top: 26px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 13.5px; color: var(--text-faint); }
+  .demo-note strong{ color: var(--text-dim); }
+
+  .btn-row{ margin-top: 26px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.02em;
+    color: var(--text);
+    border: 1px solid var(--border-strong);
+    padding: 11px 16px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: border-color .2s ease, background .2s ease, color .2s ease;
+  }
+  .btn:hover, .btn:focus-visible{ border-color: var(--blue); background: var(--blue-dim); color: var(--blue-bright); }
+  .btn.primary{ background: var(--blue); border-color: var(--blue); color: #06101f; font-weight: 600; }
+  .btn.primary:hover, .btn.primary:focus-visible{ background: var(--blue-bright); border-color: var(--blue-bright); color: #06101f; }
+
+  /* ---------- STAGE ---------- */
+
+  .stage{
+    border-left: 3px solid var(--blue-bright);
+    padding-left: 20px;
+    background: rgba(217,245,106,.04);
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+
+  /* ---------- SPEC LIST (capacidade tecnológica) ---------- */
+
+  .spec{ margin-top: 28px; border-top: 1px solid var(--border); }
+  .spec-row{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .spec-row .tag{
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    color: var(--text-faint);
+  }
+  .spec-row .key{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    color: var(--text);
+    font-weight: 600;
+  }
+  .spec-row .val{ font-size: 13.5px; color: var(--text-dim); max-width: 54ch; }
+  @media (min-width: 640px){
+    .spec-row{ grid-template-columns: 76px 200px 1fr; gap: 18px; align-items: baseline; }
+  }
+
+  /* ---------- CTA ---------- */
+
+  .cta{ padding-top: 80px; padding-bottom: 60px; }
+  .cta h2{ font-size: clamp(28px, 6vw, 38px); max-width: 18ch; }
+  .cta .lede{ margin-top: 16px; }
+
+  .contact{
+    margin-top: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+  }
+  .contact a{ color: var(--text-dim); text-decoration: none; border-bottom: 1px solid transparent; }
+  .contact a:hover, .contact a:focus-visible{ color: var(--blue-bright); border-bottom-color: var(--blue-bright); }
+
+  footer{
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 32px 24px 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    color: var(--text-faint);
+    letter-spacing: 0.04em;
+  }
+
+  a:focus-visible, button:focus-visible{ outline: 2px solid var(--blue-bright); outline-offset: 4px; }
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ transition: none; opacity: 1; transform: none; }
+    .trace-line{ animation: none; opacity: 1; }
+    .trace-cursor{ animation: none; }
+    html{ scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-top">
+    <span>LUXVERSO RESEARCH &amp; TECH</span>
+    <span class="tag">BAHIA AGROCONECTA 2026</span>
+  </div>
+
+  <h1>Você traz o problema.<br><span>A LuxAgro investiga.</span></h1>
+
+  <p class="hero-sub">Uma engine de inteligência investigativa para problemas complexos do agro.</p>
+
+  <p class="hero-complement">Em vez de apenas buscar informações, a LuxAgro estrutura uma investigação: identifica o que precisa ser descoberto, conecta evidências, revela lacunas e conduz os próximos caminhos de pesquisa.</p>
+
+  <div class="trace" role="img" aria-label="Representação de uma investigação em execução: problema, linhas de investigação, evidências, gaps e próxima ação.">
+    <div class="trace-head"><span class="dot"></span> investigation_trace.log</div>
+    <div class="trace-body">
+      <div class="trace-line" style="animation-delay:.1s"><span class="k">&gt; PROBLEMA</span><span class="v">"controle de nematoide em soja — quais ativos biológicos existem?"</span></div>
+      <div class="trace-line" style="animation-delay:.6s"><span class="k">&gt; LINHAS DE INVESTIGAÇÃO</span><span class="v">organismo · mecanismo de ação · patente · formulação</span></div>
+      <div class="trace-line" style="animation-delay:1.1s"><span class="k">&gt; EVIDÊNCIAS / ENTIDADES / RELAÇÕES</span><span class="v"><span class="stat-ok">● 12 relações confirmadas</span> &nbsp; <span class="stat-warn">○ 4 hipóteses em aberto</span></span></div>
+      <div class="trace-line" style="animation-delay:1.6s"><span class="k">&gt; GAPS / CONTRADIÇÕES</span><span class="v"><span class="stat-gap">▲ 2 lacunas identificadas</span></span></div>
+      <div class="trace-line" style="animation-delay:2.1s"><span class="k">&gt; PRÓXIMA AÇÃO</span><span class="v">investigar estabilidade da formulação em pH baixo<span class="trace-cursor"></span></span></div>
+    </div>
+  </div>
+
+  <div class="scroll-cue">continue</div>
+</section>
+
+<div class="divider"><span></span></div>
+
+<section class="reveal">
+  <div class="section-head">
+    <p class="eyebrow">O problema</p>
+    <h2>A informação não falta. Falta quem a investigue.</h2>
+  </div>
+  <p class="body-text">Literatura, patentes, organismos, processos, pesquisadores e instituições existem — dispersos, sem conversar entre si. Encontrar a conexão certa consome semanas de um time sênior, e a decisão de onde investir em P&amp;D acaba se apoiando em redes de contato e sorte.</p>
+  <p class="pull"><span class="no">Buscar não é o problema.</span><br><span class="yes">Investigar é.</span></p>
+</section>
+
+<div class="divider"><span></span></div>
+
+<section class="reveal">
+  <div class="section-head">
+    <p class="eyebrow">A pergunta</p>
+    <h2>E se, em vez de responder, a IA investigasse?</h2>
+  </div>
+  <p class="body-text">Uma IA generalista responde à pergunta formulada pelo usuário. A LuxAgro parte de um problema e estrutura o próprio caminho de investigação — decide o que precisa ser descoberto, busca em múltiplas fontes e só então volta com evidência, relação e lacuna.</p>
+  <p class="pull"><span class="no">Chat responde perguntas.</span><br><span class="yes">LuxAgro conduz investigações.</span></p>
+</section>
+
+<div class="divider"><span></span></div>
+
+<section class="reveal">
+  <div class="section-head">
+    <p class="eyebrow">O que você consegue descobrir</p>
+    <h2>Transforme um problema de P&amp;D em uma investigação.</h2>
+  </div>
+  <p class="body-text">A mesma engine, aplicada a diferentes formas de investigar um problema do agro:</p>
+
+  <div class="grid2" style="margin-top:28px;">
+    <div class="card">
+      <span class="k">Technology Scouting</span>
+      <h3>Descoberta</h3>
+      <p>Tecnologias, organismos, processos e soluções relacionadas a um problema específico.</p>
+    </div>
+    <div class="card">
+      <span class="k">P&amp;D</span>
+      <h3>Estado da arte</h3>
+      <p>Alternativas técnicas e linhas de investigação antes de investir tempo e recursos.</p>
+    </div>
+    <div class="card">
+      <span class="k">Partner Discovery</span>
+      <h3>Conexões</h3>
+      <p>Pesquisadores, instituições e organizações conectadas ao problema.</p>
+    </div>
+    <div class="card">
+      <span class="k">Technical Due Diligence</span>
+      <h3>Validação</h3>
+      <p>O que literatura, patentes e outras fontes realmente sustentam antes de uma decisão.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span></span></div>
+
+<section class="reveal">
+  <div class="section-head">
+    <p class="eyebrow">Como funciona</p>
+    <h2>Da pergunta à decisão</h2>
+  </div>
+
+  <div class="pipeline">
+    <div class="pnode">
+      <div class="pnode-marker mono">01</div>
+      <div><h3>Problema</h3><p>Você descreve um desafio real do agro — um organismo, uma tecnologia, um gargalo de formulação, um parceiro que falta.</p></div>
+    </div>
+    <div class="pnode">
+      <div class="pnode-marker mono">02</div>
+      <div><h3>Investigação</h3><p>A engine decompõe o problema e decide o que precisa ser descoberto, buscando em literatura, patentes, organismos, instituições e processos.</p></div>
+    </div>
+    <div class="pnode">
+      <div class="pnode-marker mono">03</div>
+      <div><h3>Evidência</h3><p>Conecta relações entre o que encontrou, distinguindo o que é sustentado por fonte do que ainda é hipótese em aberto.</p></div>
+    </div>
+    <div class="pnode">
+      <div class="pnode-marker mono">04</div>
+      <div><h3>Decisão</h3><p>Entrega lacunas, contradições e linhas de investigação — o material para o seu próximo passo, não apenas um resumo.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span></span></div>
+
+<section class="reveal">
+  <div class="section-head">
+    <p class="eyebrow">Produto</p>
+    <h2>Uma engine. Diferentes formas de consumir inteligência.</h2>
+  </div>
+  <p class="body-text">A mesma capacidade investigativa, acessada de formas diferentes conforme o que você precisa fazer com ela.</p>
+
+  <div class="stack mono">
+    <div class="stack-core">ENGINE DE INVESTIGAÇÃO</div>
+    <div class="stack-arrow">↓</div>
+    <div class="stack-layers">COPILOTO&nbsp;&nbsp;·&nbsp;&nbsp;WORKSPACE&nbsp;&nbsp;·&nbsp;&nbsp;REPORTS&nbsp;&nbsp;·&nbsp;&nbsp;API</div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <span class="k">Copiloto</span>
+      <h3>Interação direta</h3>
+      <p>Converse diretamente com uma investigação em andamento e explore o que ela encontrou.</p>
+    </div>
+    <div class="card">
+      <span class="k">Investigation Workspace</span>
+      <h3>Acompanhamento</h3>
+      <p>Acompanhe hipóteses, evidências, relações, gaps e próximos passos de uma investigação.</p>
+    </div>
+    <div class="card">
+      <span class="k">Intelligence Reports</span>
+      <h3>Dossiê estruturado</h3>
+      <p>Transforme uma investigação em um dossiê estruturado, pronto para apoiar uma decisão.</p>
+    </div>
+    <div class="card">
+      <span class="k">API / Integrações</span>
+      <h3>Infraestrutura</h3>
+      <p>Incorpore a capacidade investigativa a outros fluxos, sistemas e produtos.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span></span></div>
+
+<section class="reveal">
+  <div class="demo">
+    <div class="demo-tag">Investigação real · executada</div>
+    <div class="section-head">
+      <h2>Inteligência Biotecnológica Agropecuária</h2>
+    </div>
+    <p class="body-text">Bioinsumos foi a primeira investigação usada para demonstrar a capacidade da engine — um caso real de execução, não uma simulação.</p>
+    <p class="pull" style="margin:20px 0 0;"><span class="no">Bioinsumos foi o campo de prova.</span><br><span class="yes">A engine é maior que o caso.</span></p>
+
+    <div class="stat-grid">
+      <div class="stat"><span class="n">763</span><span class="l">obras e registros</span></div>
+      <div class="stat"><span class="n">4.045</span><span class="l">relações observadas</span></div>
+      <div class="stat"><span class="n">767</span><span class="l">instituições</span></div>
+      <div class="stat"><span class="n">536</span><span class="l">sinais de aplicação</span></div>
+    </div>
+
+    <p class="eyebrow" style="margin-top:32px;">O que foi demonstrado</p>
+    <div class="checklist">
+      <div class="item">Integração de diferentes fontes de conhecimento</div>
+      <div class="item">Normalização de entidades</div>
+      <div class="item">Relações entre organismos, processos, instituições e tecnologias</div>
+      <div class="item">Provenance rastreável até a fonte</div>
+      <div class="item">Investigação em múltiplas etapas</div>
+      <div class="item">Identificação explícita de lacunas</div>
+      <div class="item">Distinção entre evidência, inferência e hipótese</div>
+      <div class="item">Interrupção de linhas quando a evidência não é suficiente</div>
+    </div>
+
+    <div class="btn-row">
+      <a class="btn primary" href="https://luxverso.com/inteligencia-biotecnologica/" target="_blank" rel="noopener">VER INTELIGÊNCIA BIOTECNOLÓGICA →</a>
+      <a class="btn" href="https://luxverso.com/inteligencia-biotecnologica/copiloto/" target="_blank" rel="noopener">ABRIR COPILOTO →</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span></span></div>
+
+<section class="reveal">
+  <div class="section-head">
+    <p class="eyebrow">Horizontal por design</p>
+    <h2>Bioinsumos foi a primeira pergunta. Não é a única.</h2>
+  </div>
+  <p class="body-text">O agro é a vertical de entrada. A tecnologia por trás é horizontal.</p>
+  <p class="hierarchy mono">LUXVERSO RESEARCH &amp; TECH <span>→</span> LUXAGRO <span>→</span> ENGINE DE INVESTIGAÇÃO <span>→</span> P&amp;D, scouting, discovery, due diligence</p>
+
+  <div class="grid2" style="margin-top:28px;">
+    <div class="card">
+      <span class="k">Descoberta</span>
+      <h3>Ativos, organismos e mecanismos</h3>
+      <p>Candidatos a bioinsumo e mecanismos de ação relacionados ao seu problema.</p>
+    </div>
+    <div class="card">
+      <span class="k">Scouting</span>
+      <h3>Tecnologias emergentes</h3>
+      <p>Processos e tecnologias em estágio inicial aplicáveis ao gargalo que você tem hoje.</p>
+    </div>
+    <div class="card">
+      <span class="k">Parcerias</span>
+      <h3>Pesquisadores e instituições</h3>
+      <p>Quem já pesquisa o tema, onde, e com qual evidência publicada.</p>
+    </div>
+    <div class="card">
+      <span class="k">Due diligence</span>
+      <h3>Validação técnica</h3>
+      <p>O que a literatura e as patentes realmente sustentam, antes de investir ou fechar parceria.</p>
+    </div>
+  </div>
+
+</section>
+
+<div class="divider"><span></span></div>
+
+<section class="reveal">
+  <div class="section-head">
+    <p class="eyebrow">Capacidade tecnológica</p>
+    <h2>Construída para investigar, não apenas responder.</h2>
+  </div>
+  <p class="body-text">Isso não é um prompt sofisticado. <strong>Uma arquitetura para manter contexto, estado, evidência, relações e linhas de investigação ao longo do processo.</strong></p>
+
+  <div class="spec">
+    <div class="spec-row"><div class="tag mono">ARCH · 01</div><div class="key">Investigação orientada a problemas</div><div class="val">Parte de uma pergunta real, não de uma busca por palavras-chave.</div></div>
+    <div class="spec-row"><div class="tag mono">ARCH · 02</div><div class="key">Memória / estado investigativo</div><div class="val">Mantém o que já foi descoberto, descartado e o que ainda está em aberto.</div></div>
+    <div class="spec-row"><div class="tag mono">ARCH · 03</div><div class="key">Entidades e relações</div><div class="val">Representa organismos, processos, instituições e tecnologias como estrutura, não texto solto.</div></div>
+    <div class="spec-row"><div class="tag mono">ARCH · 04</div><div class="key">Provenance</div><div class="val">Cada afirmação é rastreável até a fonte que a sustenta.</div></div>
+    <div class="spec-row"><div class="tag mono">ARCH · 05</div><div class="key">Evidência vs. inferência vs. hipótese</div><div class="val">Distingue explicitamente o que é comprovado do que é sugerido.</div></div>
+    <div class="spec-row"><div class="tag mono">ARCH · 06</div><div class="key">Gaps e resultados negativos</div><div class="val">Registra o que não foi encontrado e onde a evidência é insuficiente.</div></div>
+    <div class="spec-row"><div class="tag mono">ARCH · 07</div><div class="key">Investigação adaptativa</div><div class="val">Muda de direção quando uma linha se esgota, em vez de insistir sem sustentação.</div></div>
+  </div>
+</section>
+
+<div class="divider"><span></span></div>
+
+<section class="reveal">
+  <div class="section-head">
+    <p class="eyebrow">Estágio</p>
+    <h2>Do protótipo à plataforma.</h2>
+  </div>
+  <div class="stage">
+    <p class="body-text">A capacidade investigativa já foi demonstrada em experimentos reais. O próximo estágio é ampliar cobertura de dados, autonomia e confiabilidade — transformando a infraestrutura experimental em uma plataforma escalável.</p>
+  </div>
+</section>
+
+<div class="divider"><span></span></div>
+
+<section class="reveal cta">
+  <p class="eyebrow">Vamos conversar</p>
+  <h2>Qual problema de P&amp;D você está tentando resolver?</h2>
+  <p class="lede">Traga uma pergunta real. A gente mostra como a LuxAgro pode estruturar e investigar o problema.</p>
+  <p class="pull" style="margin-top:18px;"><span class="no">Traga um problema real.</span><br><span class="yes">Não precisa saber como investigá-lo.</span></p>
+
+  <div class="btn-row">
+    <a class="btn primary" href="https://luxverso.com/inteligencia-biotecnologica/" target="_blank" rel="noopener">EXPLORAR DEMONSTRAÇÃO</a>
+    <a class="btn" href="https://luxverso.com/inteligencia-biotecnologica/copiloto/" target="_blank" rel="noopener">ABRIR COPILOTO</a>
+    <a class="btn" href="https://wa.me/5585999798762" target="_blank" rel="noopener">FALAR COM VINÍCIUS</a>
+  </div>
+
+  <div class="contact">
+    <a href="https://www.linkedin.com/in/vinicius-buri-46597792" target="_blank" rel="noopener">linkedin.com/in/vinicius-buri-46597792</a>
+    <a href="https://wa.me/5585999798762" target="_blank" rel="noopener">+55 85 99979-8762</a>
+    <a href="mailto:viniburilux@gmail.com">viniburilux@gmail.com</a>
+  </div>
+</section>
+
+<footer>
+  <span>LUXAGRO INTELLIGENCE</span>
+  <span>BAHIA AGROCONECTA 2026</span>
+</footer>
+
+<script>
+  const targets = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        e.target.classList.add('is-visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  targets.forEach(t => io.observe(t));
+</script>
+
+</body>
+</html>
