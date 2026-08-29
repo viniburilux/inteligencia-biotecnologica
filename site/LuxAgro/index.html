@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LuxAgro Intelligence — Engine de Investigação para o Agro</title>
+<title>LuxAgro — Inteligência investigativa para o Agro</title>
+<meta name="description" content="Conheça a LuxAgro: uma tecnologia que transforma problemas complexos do Agro em investigações estruturadas, com evidências, relações e próximos caminhos.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -223,6 +224,23 @@
     text-transform: uppercase;
   }
   .scroll-cue::before{ content:""; width: 22px; height: 1px; background: var(--text-faint); }
+
+  .proof-signal{
+    position: relative;
+    z-index: 1;
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 22px 24px 28px;
+    border-top: 1px solid var(--border-strong);
+    border-bottom: 1px solid var(--border);
+    background: rgba(217,245,106,.035);
+  }
+  .proof-signal-inner{ display:flex; align-items:center; justify-content:space-between; gap:24px; }
+  .proof-label{ color:var(--blue-bright); font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; }
+  .proof-label strong{ display:block; margin-top:7px; color:var(--text); font-family:'Inter',system-ui,sans-serif; font-size:18px; letter-spacing:-.02em; text-transform:none; }
+  .proof-stats{ display:flex; flex-wrap:wrap; justify-content:flex-end; gap:18px; }
+  .proof-stat b{ display:block; color:var(--text); font-family:'IBM Plex Mono',monospace; font-size:18px; }
+  .proof-stat span{ display:block; margin-top:2px; color:var(--text-faint); font-size:10px; }
 
   /* ---------- SECTION HEADS ---------- */
 
@@ -471,6 +489,11 @@
 
   a:focus-visible, button:focus-visible{ outline: 2px solid var(--blue-bright); outline-offset: 4px; }
 
+  @media (max-width: 620px){
+    .proof-signal-inner{ align-items:flex-start; flex-direction:column; gap:18px; }
+    .proof-stats{ justify-content:flex-start; gap:14px; }
+  }
+
   @media (prefers-reduced-motion: reduce){
     .reveal{ transition: none; opacity: 1; transform: none; }
     .trace-line{ animation: none; opacity: 1; }
@@ -483,15 +506,15 @@
 
 <section class="hero">
   <div class="hero-top">
-    <span>LUXVERSO RESEARCH &amp; TECH</span>
-    <span class="tag">BAHIA AGROCONECTA 2026</span>
+    <span>LUXAGRO INTELLIGENCE</span>
+    <span class="tag">PRODUTO · TECNOLOGIA AGRO</span>
   </div>
 
   <h1>Você traz o problema.<br><span>A LuxAgro investiga.</span></h1>
 
-  <p class="hero-sub">Uma engine de inteligência investigativa para problemas complexos do agro.</p>
+  <p class="hero-sub">Uma tecnologia que transforma problemas complexos do agro em investigações estruturadas.</p>
 
-  <p class="hero-complement">Em vez de apenas buscar informações, a LuxAgro estrutura uma investigação: identifica o que precisa ser descoberto, conecta evidências, revela lacunas e conduz os próximos caminhos de pesquisa.</p>
+  <p class="hero-complement">Em vez de apenas responder ou listar informações, a LuxAgro identifica o que precisa ser descoberto, conecta evidências, revela lacunas e organiza os próximos caminhos de pesquisa.</p>
 
   <div class="trace" role="img" aria-label="Representação de uma investigação em execução: problema, linhas de investigação, evidências, gaps e próxima ação.">
     <div class="trace-head"><span class="dot"></span> investigation_trace.log</div>
@@ -506,6 +529,17 @@
 
   <div class="scroll-cue">continue</div>
 </section>
+
+<div class="proof-signal" aria-label="Sinal de prova da tecnologia">
+  <div class="proof-signal-inner">
+    <div class="proof-label">Prova pública<strong>1 investigação real já executada</strong></div>
+    <div class="proof-stats">
+      <div class="proof-stat"><b>763</b><span>obras e registros</span></div>
+      <div class="proof-stat"><b>4.045</b><span>relações observadas</span></div>
+      <div class="proof-stat"><b>767</b><span>instituições</span></div>
+    </div>
+  </div>
+</div>
 
 <div class="divider"><span></span></div>
 
@@ -595,9 +629,9 @@
 <section class="reveal">
   <div class="section-head">
     <p class="eyebrow">Produto</p>
-    <h2>Uma engine. Diferentes formas de consumir inteligência.</h2>
+    <h2>Um mesmo núcleo. Diferentes formas de usar inteligência.</h2>
   </div>
-  <p class="body-text">A mesma capacidade investigativa, acessada de formas diferentes conforme o que você precisa fazer com ela.</p>
+  <p class="body-text">A mesma capacidade investigativa pode apoiar diferentes decisões: explorar uma tecnologia, encontrar parceiros, avaliar um caminho ou organizar um dossiê.</p>
 
   <div class="stack mono">
     <div class="stack-core">ENGINE DE INVESTIGAÇÃO</div>
@@ -705,10 +739,10 @@
 
 <section class="reveal">
   <div class="section-head">
-    <p class="eyebrow">Capacidade tecnológica</p>
-    <h2>Construída para investigar, não apenas responder.</h2>
+    <p class="eyebrow">Por dentro da tecnologia</p>
+    <h2>O que faz a LuxAgro ser diferente de uma busca comum?</h2>
   </div>
-  <p class="body-text">Isso não é um prompt sofisticado. <strong>Uma arquitetura para manter contexto, estado, evidência, relações e linhas de investigação ao longo do processo.</strong></p>
+  <p class="body-text">Por trás da experiência existe mais do que um prompt. <strong>Existe uma arquitetura para manter contexto, evidências, relações e linhas de investigação ao longo do processo.</strong></p>
 
   <div class="spec">
     <div class="spec-row"><div class="tag mono">ARCH · 01</div><div class="key">Investigação orientada a problemas</div><div class="val">Parte de uma pergunta real, não de uma busca por palavras-chave.</div></div>
@@ -725,11 +759,11 @@
 
 <section class="reveal">
   <div class="section-head">
-    <p class="eyebrow">Estágio</p>
-    <h2>Do protótipo à plataforma.</h2>
+    <p class="eyebrow">O que já existe</p>
+    <h2>Da capacidade demonstrada à plataforma.</h2>
   </div>
   <div class="stage">
-    <p class="body-text">A capacidade investigativa já foi demonstrada em experimentos reais. O próximo estágio é ampliar cobertura de dados, autonomia e confiabilidade — transformando a infraestrutura experimental em uma plataforma escalável.</p>
+    <p class="body-text">A capacidade investigativa já foi demonstrada em experimentos reais. O próximo estágio é ampliar cobertura de dados, autonomia e confiabilidade — transformando a infraestrutura experimental em uma plataforma escalável e cada vez mais independente da condução humana.</p>
   </div>
 </section>
 
@@ -737,9 +771,9 @@
 
 <section class="reveal cta">
   <p class="eyebrow">Vamos conversar</p>
-  <h2>Qual problema de P&amp;D você está tentando resolver?</h2>
-  <p class="lede">Traga uma pergunta real. A gente mostra como a LuxAgro pode estruturar e investigar o problema.</p>
-  <p class="pull" style="margin-top:18px;"><span class="no">Traga um problema real.</span><br><span class="yes">Não precisa saber como investigá-lo.</span></p>
+  <h2>Tem um problema técnico ou de inovação no Agro?</h2>
+  <p class="lede">Conte o desafio. A gente mostra como a LuxAgro pode estruturar a investigação e encontrar por onde começar.</p>
+  <p class="pull" style="margin-top:18px;"><span class="no">Você traz o problema.</span><br><span class="yes">A LuxAgro encontra por onde investigar.</span></p>
 
   <div class="btn-row">
     <a class="btn primary" href="https://luxverso.com/inteligencia-biotecnologica/" target="_blank" rel="noopener">EXPLORAR DEMONSTRAÇÃO</a>
